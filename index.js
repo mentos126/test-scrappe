@@ -21,4 +21,8 @@ app.get('/test/*', function (req, res) {
   })
 })
 
+app.get('*', function (req, res) {
+  res.send('coucou')
+})
+
 http.listen(PORT, () => { console.log(`listening on *:${PORT}`) })
