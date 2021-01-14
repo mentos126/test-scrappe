@@ -16,15 +16,15 @@ app.use((req, res, next) => {
 })
 app.use(express.json())
 
-app.get('/*', function (req, res) {
-  request(req.url.substring(1), function (error, response, body) {
+app.get('/test/*', function (req, res) {
+  request(req.url.substring(6), function (error, response, body) {
     res.send(body)
   })
 })
 
-// app.get('*', function (req, res) {
-//   res.send('coucou')
-// })
+app.get('*', function (req, res) {
+  res.send('coucou')
+})
 
 server.listen(PORT, () => {
   console.log('listening on *:' + PORT)
