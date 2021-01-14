@@ -16,8 +16,8 @@ app.use((req, res, next) => {
 })
 app.use(express.json())
 
-app.get('*', function (req, res) {
-  request(req.url.substring(6), function (error, response, body) {
+app.get('/*', function (req, res) {
+  request(req.url.substring(1), function (error, response, body) {
     res.send(body)
   })
 })
