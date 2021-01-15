@@ -2,6 +2,7 @@ import cors from 'cors'
 import express from 'express'
 import http from 'http'
 import request from 'request'
+import bodyParser from 'body-parser'
 
 const PORT = process.env.PORT || 8080
 const app = express()
@@ -14,12 +15,18 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
   next()
 })
+
+app.use(bodyParser.text())
 app.use(express.json())
 
 app.get('/test/*', function (req, res) {
   request(req.url.substring(6), function (error, response, body) {
     res.send(body)
   })
+})
+
+app.all('/show/*', function (req, res) {
+  res.json({body: req.body, url: req.url})
 })
 
 app.get('*', function (req, res) {
