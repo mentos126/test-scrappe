@@ -29,6 +29,11 @@ app.all('/show/*', function (req, res) {
   res.json({body: req.body, url: req.url})
 })
 
+app.get('/m3u', function (req, res) {
+  const file = `./toto.m3u`
+  res.download(file)
+})
+
 app.get('*', function (req, res) {
   res.send('coucou')
 })
