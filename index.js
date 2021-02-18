@@ -29,6 +29,12 @@ app.all('/show/*', function (req, res) {
   res.json({body: req.body, url: req.url})
 })
 
+app.all('/show2/*', function (req, res) {
+  request(req.url.substring(6), function (error, response, body) {
+    res.json(body)
+  })
+})
+
 app.get('/m3u', function (req, res) {
   const file = `./toto.m3u`
   res.download(file)
