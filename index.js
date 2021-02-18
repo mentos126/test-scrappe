@@ -30,7 +30,7 @@ app.all('/show/*', function (req, res) {
 })
 
 app.all('/show2/*', function (req, res) {
-  request(req.url.substring(6), function (error, response, body) {
+  request(req.url.substring(7), function (error, response, body) {
     res.json(body)
   })
 })
