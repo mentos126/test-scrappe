@@ -36,7 +36,12 @@ app.all('/show2/*', function (req, res) {
 })
 
 app.get('/m3u', function (req, res) {
-  const file = `./toto.m3u`
+  const file = `./m3us/toto.m3u`
+  res.download(file)
+})
+
+app.get('/m3u-sports', function (req, res) {
+  const file = `./m3us/mytoto.m3u`
   res.download(file)
 })
 
