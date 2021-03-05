@@ -49,4 +49,6 @@ app.get('*', function (req, res) {
   res.send('coucou')
 })
 
-server.listen(PORT, '0.0.0.0')
+server.listen(PORT, () => {
+  console.log('listening on *:' + PORT)
+})
