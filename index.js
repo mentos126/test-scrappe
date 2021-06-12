@@ -45,6 +45,11 @@ app.get('/m3u-sports', function (req, res) {
   res.download(file)
 })
 
+app.get('/m3u-pt-sports', function (req, res) {
+  const file = `./m3us/pt-2021-06-12.m3u`
+  res.download(file)
+})
+
 app.get('*', function (req, res) {
   res.send('coucou')
 })
